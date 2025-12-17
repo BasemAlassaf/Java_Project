@@ -25,16 +25,4 @@ public class Factory {
         return null;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Factory{");
-        sb.append("users=").append(users);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    
-
-
 }

@@ -34,20 +34,5 @@ public class User {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("User{");
-        sb.append("userName=").append(userName);
-        sb.append(", passWord=").append(passWord);
-        sb.append(", role=").append(role);
-        sb.append('}');
-        return sb.toString();
-    }
-
-    
-    
-   
-
 
 }
