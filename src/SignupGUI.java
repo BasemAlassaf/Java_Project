@@ -26,7 +26,7 @@ public class SignupGUI extends JFrame implements ActionListener , MouseListener{
         this.setTitle("BLS Project");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 750);
-        this.setResizable(true);
+        this.setResizable(false);
         this.setLocation(330, 35);
         this.setLayout(null);
         this.setVisible(true);
@@ -111,7 +111,7 @@ public class SignupGUI extends JFrame implements ActionListener , MouseListener{
                 return;
             }
         if(!userEmail.getText().contains("@")){
-            JOptionPane.showMessageDialog(null,"This email is invalid" ,"invalid email",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"This email is invalid please check if contain: @" ,"invalid email",JOptionPane.WARNING_MESSAGE);
             return;
         }
             if(manager.isSelected()){
