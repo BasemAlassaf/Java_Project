@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -36,8 +35,8 @@ public class LoginGUI extends JFrame implements ActionListener {
         ImageIcon userIcon = new ImageIcon("pngs/User-Icon.png");
         ImageIcon passwordIcon = new ImageIcon("pngs/Password-Icon.png");
 
-        userEmail = new JTextField("User Email");
-        password  = new JPasswordField("User Password");
+        userEmail = new JTextField();
+        password  = new JPasswordField();
 
         JLabel userLabel = new JLabel();
         JLabel passwordLabel = new JLabel();
@@ -99,15 +98,39 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         signIn.addActionListener(this);
         signUp.addActionListener(this);
-    
+        
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+         String convertpassword = new String(password.getPassword());
+
+       try{
         if(e.getSource() == signIn ){
-            switch (Factory.login(userEmail.getSelectedText(), password.getSelectedText())) {
-                case null:
-                    String [] respones ={"Try Again" , "Sign Up"};
+            if(userEmail.getText().isEmpty() || convertpassword.isEmpty()){
+             JOptionPane.showMessageDialog(null, "Please Enter all information", "There are missid information", JOptionPane.WARNING_MESSAGE, null);
+                return;
+        }
+        if(!userEmail.getText().contains("@")){
+            JOptionPane.showMessageDialog(null,"This email is invalid" ,"invalid email",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        switch (Factory.login(userEmail.getText(), convertpassword).getRole()) {
+            case Manager:
+                new ManagerGUI();
+                break;
+            case PRODUCTION_SUPERVISOR:
+                new SupervisorGUI();
+                break;
+        }     
+            
+        }
+        if(e.getSource() == signUp){
+            new SignupGUI();
+            this.dispose();
+        }}catch(NullPointerException q){
+            String [] respones ={"Try Again" , "Sign Up"};
 
                     int response = JOptionPane.showOptionDialog(null,
                     "There is no User with this infomation please try again", 
@@ -117,23 +140,11 @@ public class LoginGUI extends JFrame implements ActionListener {
                     null ,
                     respones ,
                     0);
-                    
-                    
                     if(response == 1){
                         new SignupGUI();
                     this.dispose();}
-                    break;
-                case Manager:
-                    new ManagerGUI();
-                case PRODUCTION_SUPERVISOR:
-                    new SupervisorGUI();
-                default:
-                    break;
-            }
-        }
-        if(e.getSource() == signUp){
-            new SignupGUI();
-            this.dispose();
+
+
         }
         
         
