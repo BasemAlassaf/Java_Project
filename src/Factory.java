@@ -3,23 +3,25 @@ import java.util.ArrayList;
 public class Factory {
  
     
-    ArrayList<User>users = new ArrayList<>();
-   //انشاء حساب جديد والتأكد من عدم الدخول مسبقا
-    public boolean register(String userName , String passWord ,Role role ){
+    static ArrayList<User>users = new ArrayList<>();
+ 
+    //  register method 
+    public static boolean register(String userName , String password ,Role role ){
  
         for (User user : users) {
            if(user.getUserName().equals(userName)){
         return false;
         }
     }
-    users.add(new User(userName, passWord, role));
+    users.add(new User(userName, password, role));
     return true;
     }
-    //تسجيل دخول
-    public User login(String userName, String passWord, Role role){
+
+    // Login method
+    public static Role login(String userName, String password){
         for (User  user : users) {
-        if(user.getUserName().equals(userName) && user.getpassWord().equals(passWord))    
-            return user;
+        if(user.getUserName().equals(userName) && user.getpassword().equals(password))    
+            return user.getRole();
         }
 
         return null;

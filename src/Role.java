@@ -1,5 +1,5 @@
 
 enum  Role {
-    Admain,
+    Manager,
     PRODUCTION_SUPERVISOR
 }
