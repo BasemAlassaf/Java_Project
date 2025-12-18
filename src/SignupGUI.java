@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -43,8 +44,8 @@ public class SignupGUI extends JFrame implements ActionListener , MouseListener{
         ButtonGroup radioGroup = new ButtonGroup();
 
 
-        userEmail = new JTextField("User Email");
-        userPassword = new JPasswordField("User Password");
+        userEmail = new JTextField();
+        userPassword = new JPasswordField();
         sumbit = new JButton("Sumbit");
         manager = new JRadioButton("Manager");
         supervisor = new JRadioButton("Supervisor");
@@ -97,10 +98,6 @@ public class SignupGUI extends JFrame implements ActionListener , MouseListener{
        supervisor.setBounds(400, 400, 100, 20);
        backLabel.setBounds(250, 500, 65, 65);
        
-       
-
-
-
 
     }
 
@@ -108,11 +105,34 @@ public class SignupGUI extends JFrame implements ActionListener , MouseListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == sumbit ){
-            // call add member func
+            String password = new String(userPassword.getPassword());
+            if(userEmail.getText().isEmpty() || password.isEmpty() || (!manager.isSelected() && !supervisor.isSelected())){
+                JOptionPane.showMessageDialog(null, "Please Enter all information", "There are missid information", JOptionPane.WARNING_MESSAGE, null);
+                return;
+            }
+        if(!userEmail.getText().contains("@")){
+            JOptionPane.showMessageDialog(null,"This email is invalid" ,"invalid email",JOptionPane.WARNING_MESSAGE);
+            return;
         }
-
+            if(manager.isSelected()){
+            if(!Factory.register(userEmail.getText(), password, Role.Manager))
+                JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null);
+            else{
+                JOptionPane.showMessageDialog(null, "The Sign Up has compleated succesfuly", "succesful Sign Up", JOptionPane.WARNING_MESSAGE, null);    
+                new LoginGUI();}  
+        }
+        else{
+            if(!Factory.register(userEmail.getText(), password, Role.PRODUCTION_SUPERVISOR))
+            JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null);
+            else{
+                JOptionPane.showMessageDialog(null, "The Sign Up has compleated succesfuly", "succesful Sign Up", JOptionPane.WARNING_MESSAGE, null);
+                new LoginGUI();}
+        }   
+        
+            
+        }
     }
-
+    
 
     @Override
     public void mouseClicked(MouseEvent e) {
