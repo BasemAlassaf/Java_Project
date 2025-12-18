@@ -3,8 +3,6 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -113,7 +111,7 @@ public class LoginGUI extends JFrame implements ActionListener {
                 return;
         }
         if(!userEmail.getText().contains("@")){
-            JOptionPane.showMessageDialog(null,"This email is invalid" ,"invalid email",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"This email is invalid please Check if contain: @" ,"invalid email",JOptionPane.WARNING_MESSAGE);
             return;
         }
         switch (Factory.login(userEmail.getText(), convertpassword).getRole()) {
