@@ -7,7 +7,7 @@ public class ProductLine {
     private String lineNumber;
     private String lineName;
     private LineStatus status;
-    private List<String>tasks;
+    private List<Task>tasks;
 
     public ProductLine(String lineName, String lineNumber, LineStatus status, List<String> tasks) {
         this.lineName = lineName;
@@ -40,13 +40,15 @@ public class ProductLine {
         this.status = status;
     }
 
-    public List<String> getTasks() {
+    public List<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<String> tasks) {
+    public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+    
 
    
     
