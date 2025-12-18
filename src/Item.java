@@ -1,10 +1,9 @@
 
-import java.util.ArrayList;
 
 public class Item {
     private String idItem;
     private String itemName;
-    private ArrayList<String>category = new ArrayList<>();
+    private String category; 
     private double price;
     private double quantity;
     private double minimumQuantity=100;
@@ -33,14 +32,13 @@ public class Item {
         this.itemName = itemname;
     }
 
-    public ArrayList<String> getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(ArrayList<String> category) {
+    public void setCategory(String category) {
         this.category = category;
     }
-
     public double getPrice() {
         return price;
     }
@@ -74,6 +72,7 @@ public class Item {
     public boolean isBelowMinimum(){
         return quantity < minimumQuantity;
     }
+
 
     
 }
