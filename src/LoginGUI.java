@@ -3,14 +3,18 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-public class LoginGUI extends JFrame implements ActionListener{
+public class LoginGUI extends JFrame implements ActionListener {
 
     JButton signIn,signUp;
     JTextField userEmail;
@@ -95,16 +99,37 @@ public class LoginGUI extends JFrame implements ActionListener{
 
         signIn.addActionListener(this);
         signUp.addActionListener(this);
-        
-
-        
-
+    
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == signIn ){
-            new ManagerGUI();
+            switch (Factory.login(userEmail.getSelectedText(), password.getSelectedText())) {
+                case null:
+                    String [] respones ={"Try Again" , "Sign Up"};
+
+                    int response = JOptionPane.showOptionDialog(null,
+                    "There is no User with this infomation please try again", 
+                    "Log in Warring",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.WARNING_MESSAGE , 
+                    null ,
+                    respones ,
+                    0);
+                    
+                    
+                    if(response == 1){
+                        new SignupGUI();
+                    this.dispose();}
+                    break;
+                case Manager:
+                    new ManagerGUI();
+                case PRODUCTION_SUPERVISOR:
+                    new SupervisorGUI();
+                default:
+                    break;
+            }
         }
         if(e.getSource() == signUp){
             new SignupGUI();
@@ -114,5 +139,6 @@ public class LoginGUI extends JFrame implements ActionListener{
         
     }
 
+    
     
 }

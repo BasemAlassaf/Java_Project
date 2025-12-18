@@ -1,11 +1,11 @@
 public class User {
     
     private String userName;
-    private String passWord;
+    private String password;
     private Role role;
 
-    public User( String userName ,String passWord, Role role) {
-        this.passWord=passWord;
+    public User( String userName ,String password, Role role) {
+        this.password=password;
         this.userName = userName;
         this.role = role;
     }
@@ -18,12 +18,12 @@ public class User {
         this.userName = userName;
     }
 
-    public String getpassWord() {
-        return passWord;
+    public String getpassword() {
+        return password;
     }
 
-    public void setpassWord(String passWord) {
-        this.passWord = passWord;
+    public void setpassword(String passWord) {
+        this.password = passWord;
     }
 
     public Role getRole() {
