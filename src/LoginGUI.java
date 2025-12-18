@@ -104,7 +104,7 @@ public class LoginGUI extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == signIn ){
-            //second GUI
+            new ManagerGUI();
         }
         if(e.getSource() == signUp){
             new SignupGUI();
