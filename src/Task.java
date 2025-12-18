@@ -10,7 +10,7 @@ public class Task {
     private LocalDate endDate;
     private TaskStatus status;
     private ProductLine assignedLine;
-    private double quantityCompleted;
+    private double quantityCompleted=0;
 
     public Task(ProductLine assignedLine, LocalDate beginDate, double quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber) {
         this.assignedLine = assignedLine;
