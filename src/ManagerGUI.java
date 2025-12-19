@@ -20,9 +20,9 @@ public class ManagerGUI extends JFrame implements ActionListener {
         this.setVisible(true);
         this.getContentPane().setBackground(new Color(0x0396FF)); 
 
-        add = new JButton("Add");
-        edit = new JButton("Edit");
-        status = new JButton("Status");
+        add = new JButton("Add New Product Line");
+        edit = new JButton("Edit New Product Line");
+        status = new JButton("Product Lines Status");
 
         this.add(add);
         this.add(edit);
@@ -31,9 +31,9 @@ public class ManagerGUI extends JFrame implements ActionListener {
         add.setFocusable(false);
         edit.setFocusable(false);
         status.setFocusable(false);
-        add.setBounds(90, 350, 150, 75);
-        edit.setBounds(290, 350, 150, 75);
-        status.setBounds(490, 350, 150, 75);
+        add.setBounds(70, 350, 170, 85);
+        edit.setBounds(270, 350, 170, 85);
+        status.setBounds(470, 350, 170, 85);
 
         JLabel message = new JLabel("Welcome Manager");
     
@@ -54,7 +54,8 @@ public class ManagerGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == add){
-
+            new AddNewProductLineGUI();
+            this.dispose();
         }
         if(e.getSource() == edit){
             

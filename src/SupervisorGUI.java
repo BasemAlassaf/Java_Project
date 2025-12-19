@@ -39,13 +39,6 @@ public class SupervisorGUI extends JFrame implements ActionListener{
 
         storageManagement.setBounds(120, 340, 200, 80);
         productLineManagement.setBounds(420, 340, 200, 80);
-
-
-
-        
-        
-
-
         
     }
 

@@ -1,5 +1,3 @@
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductLine {
@@ -9,11 +7,12 @@ public class ProductLine {
     private LineStatus status;
     private List<Task>tasks;
 
-    public ProductLine(String lineName, String lineNumber, LineStatus status, List<String> tasks) {
+    public ProductLine(String lineName, String lineNumber , LineStatus status , List <Task> tasks) {
         this.lineName = lineName;
         this.lineNumber = lineNumber;
         this.status = status;
-        this.tasks = new ArrayList<>();
+        this.tasks = tasks;
+
     }
     //getter and setter
     public String getLineNumber() {

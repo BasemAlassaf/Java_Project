@@ -117,9 +117,11 @@ public class LoginGUI extends JFrame implements ActionListener {
         switch (Factory.login(userEmail.getText(), convertpassword).getRole()) {
             case Manager:
                 new ManagerGUI();
+                this.dispose();
                 break;
             case PRODUCTION_SUPERVISOR:
                 new SupervisorGUI();
+                this.dispose();
                 break;
         }     
             
@@ -143,11 +145,6 @@ public class LoginGUI extends JFrame implements ActionListener {
                     this.dispose();}
 
 
-        }
-        
-        
+        }  
     }
-
-    
-    
 }

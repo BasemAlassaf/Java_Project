@@ -10,9 +10,9 @@ public class Task {
     private LocalDate endDate;
     private TaskStatus status;
     private ProductLine assignedLine;
-    private double quantityCompleted=0;
+    private int quantityCompleted=0;
 
-    public Task(ProductLine assignedLine, LocalDate beginDate, double quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber) {
+    public Task(ProductLine assignedLine, LocalDate beginDate, int quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber) {
         this.assignedLine = assignedLine;
         this.beginDate = beginDate;
         this.quantityCompleted= quantityCompleted;
@@ -92,7 +92,7 @@ public class Task {
         return quantityCompleted;
     }
 
-    public void setQuantityCompleted(double quantityCompleted) {
+    public void setQuantityCompleted(int quantityCompleted) {
         this.quantityCompleted = quantityCompleted;
     }
         
