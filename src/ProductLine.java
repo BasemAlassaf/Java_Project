@@ -17,6 +17,12 @@ public class ProductLine {
 
     }
 
+    public ProductLine(String lineName , String lineNumber){
+        this.lineName = lineName;
+        this.lineNumber = lineNumber;
+        this.status = LineStatus.Stopped;
+    }
+
     // getter and setter
     public String getLineNumber() {
         return lineNumber;

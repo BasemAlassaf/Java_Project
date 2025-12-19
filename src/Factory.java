@@ -32,8 +32,8 @@ public class Factory {
     }
 
     //Add product line
-    public static void addProuductLine(ProductLine line) {
-        productLines.add(line);
+    public static void addProuductLine(String name , String number) {
+        productLines.add(new ProductLine(name, number));
     }
 
     // Edit product line status
