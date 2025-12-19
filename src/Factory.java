@@ -31,18 +31,20 @@ public class Factory {
         return null;
     }
 
-    // اضافة خط انتاج
-    public static void addProuductLine(String lineNumber, String lineName, LineStatus status, Task task) {
-        productLines.add(new ProductLine(lineName, lineNumber, LineStatus.Stopped, null));
+    //Add product line
+    public static void addProuductLine(ProductLine line) {
+        productLines.add(line);
     }
 
-    // تعديل حالة خط الانتاج
-    public static void editLineStatus(ProductLine line, LineStatus lineStatus) {
-        if (line == null) {
-            return;
-        } else {
-            line.getStatus() = lineStatus;
+    // Edit product line status
+    public static boolean  editLineStatu(String lineName , LineStatus newStatus) {
+        for(ProductLine line : productLines){
+            if(line.getLineName().equalsIgnoreCase(lineName)){
+                line.setStatus(newStatus);
+                return true;
+            }  
         }
+        return false;
     }
 
 }
