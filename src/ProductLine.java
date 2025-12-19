@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductLine {
-    
+
     private String lineNumber;
     private String lineName;
     private LineStatus status;
-    private List<Task>tasks;
+    private List<Task> tasks;
+    private float rate;
+    private String note;
 
     public ProductLine(String lineName, String lineNumber, LineStatus status, List<String> tasks) {
         this.lineName = lineName;
@@ -15,7 +17,8 @@ public class ProductLine {
         this.status = status;
         this.tasks = new ArrayList<>();
     }
-    //getter and setter
+
+    // getter and setter
     public String getLineNumber() {
         return lineNumber;
     }
@@ -48,8 +51,4 @@ public class ProductLine {
         this.tasks = tasks;
     }
 
-    
-
-   
-    
 }
