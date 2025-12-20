@@ -1,4 +1,5 @@
-enum  LineStatus {
+
+enum LineStatus {
     Active,
     Stopped,
     Maintenance;

@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,9 +9,9 @@ import javax.swing.JLabel;
 
 public class ManagerGUI extends JFrame implements ActionListener {
 
-    JButton add , edit , status;
+    JButton add, edit, status;
 
-    ManagerGUI(){
+    ManagerGUI() {
         this.setTitle("BLS Project");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 750);
@@ -18,7 +19,7 @@ public class ManagerGUI extends JFrame implements ActionListener {
         this.setLocation(330, 35);
         this.setLayout(null);
         this.setVisible(true);
-        this.getContentPane().setBackground(new Color(0x0396FF)); 
+        this.getContentPane().setBackground(new Color(0x0396FF));
 
         add = new JButton("Add New Product Line");
         edit = new JButton("Edit New Product Line");
@@ -36,8 +37,8 @@ public class ManagerGUI extends JFrame implements ActionListener {
         status.setBounds(470, 350, 170, 85);
 
         JLabel message = new JLabel("Welcome Manager");
-    
-        message.setBounds(0, 0,750, 300);
+
+        message.setBounds(0, 0, 750, 300);
         message.setLayout(null);
         message.setVerticalAlignment(JLabel.CENTER);
         message.setHorizontalAlignment(JLabel.CENTER);
@@ -47,22 +48,22 @@ public class ManagerGUI extends JFrame implements ActionListener {
 
         add.addActionListener(this);
         edit.addActionListener(this);
-        status.addActionListener(this);        
+        status.addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == add){
+        if (e.getSource() == add) {
             new AddNewProductLineGUI();
             this.dispose();
         }
-        if(e.getSource() == edit){
-            
+        if (e.getSource() == edit) {
+
         }
-        if(e.getSource() == status){
+        if (e.getSource() == status) {
 
         }
     }
-    
+
 }

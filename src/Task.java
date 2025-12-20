@@ -2,7 +2,9 @@
 import java.time.LocalDate;
 
 public class Task {
+
     private String taskNumber;
+    private String taskName;
     private String productName;
     private int quantityRequest;
     private String customer;
@@ -10,12 +12,12 @@ public class Task {
     private LocalDate endDate;
     private TaskStatus status;
     private ProductLine assignedLine;
-    private int quantityCompleted=0;
+    private int quantityCompleted = 0;
 
     public Task(ProductLine assignedLine, LocalDate beginDate, int quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber) {
         this.assignedLine = assignedLine;
         this.beginDate = beginDate;
-        this.quantityCompleted= quantityCompleted;
+        this.quantityCompleted = quantityCompleted;
         this.customer = customer;
         this.endDate = endDate;
         this.productName = productName;
@@ -95,12 +97,20 @@ public class Task {
     public void setQuantityCompleted(int quantityCompleted) {
         this.quantityCompleted = quantityCompleted;
     }
-        
-    public double getCompletedPerCentage(){
-        if(quantityRequest == 0){
-            return 0;}
-            return (quantityCompleted/quantityRequest) * 100.0 ;
-    }  
 
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public double getCompletedPerCentage() {
+        if (quantityRequest == 0) {
+            return 0;
+        }
+        return (quantityCompleted / quantityRequest) * 100.0;
+    }
 
 }

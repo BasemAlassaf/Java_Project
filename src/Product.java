@@ -1,11 +1,11 @@
 
-
 import java.util.HashMap;
 
 public class Product {
+
     private String idProduct;
     private String productName;
-    private HashMap<Item , Integer>item = new HashMap<>();
+    private HashMap<Item, Integer> item = new HashMap<>();
 
     public Product(String idProduct, String productName) {
         this.idProduct = idProduct;
@@ -35,9 +35,5 @@ public class Product {
     public void setItem(HashMap<Item, Integer> item) {
         this.item = item;
     }
-
-    
-
-    
 
 }

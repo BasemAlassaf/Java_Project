@@ -1,3 +1,4 @@
+
 import java.util.List;
 
 public class ProductLine {
@@ -9,7 +10,7 @@ public class ProductLine {
     private float rate;
     private String note;
 
-    public ProductLine(String lineName, String lineNumber , LineStatus status , List <Task> tasks) {
+    public ProductLine(String lineName, String lineNumber, LineStatus status, List<Task> tasks) {
         this.lineName = lineName;
         this.lineNumber = lineNumber;
         this.status = status;

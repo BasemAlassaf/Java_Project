@@ -1,16 +1,17 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class SupervisorGUI extends JFrame implements ActionListener{
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-    JButton storageManagement , productLineManagement;
-        SupervisorGUI(){
+public class SupervisorGUI extends JFrame implements ActionListener {
+
+    JButton storageManagement, productLineManagement;
+
+    SupervisorGUI() {
         this.setTitle("BLS Project");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 750);
@@ -18,7 +19,7 @@ public class SupervisorGUI extends JFrame implements ActionListener{
         this.setLocation(330, 35);
         this.setLayout(null);
         this.setVisible(true);
-        
+
         JLabel mainlabel = new JLabel("Welcome Supervisor");
         this.add(mainlabel);
 
@@ -39,11 +40,11 @@ public class SupervisorGUI extends JFrame implements ActionListener{
 
         storageManagement.setBounds(120, 340, 200, 80);
         productLineManagement.setBounds(420, 340, 200, 80);
-        
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
     }
-    
+
 }

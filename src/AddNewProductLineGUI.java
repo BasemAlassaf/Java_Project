@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -11,12 +12,13 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-public class AddNewProductLineGUI extends JFrame implements ActionListener,MouseListener{
+
+public class AddNewProductLineGUI extends JFrame implements ActionListener, MouseListener {
 
     JTextField productLineName, productLineNumber;
     JButton submit;
 
-    AddNewProductLineGUI(){
+    AddNewProductLineGUI() {
         this.setTitle("BLS Project");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(750, 750);
@@ -24,12 +26,11 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
         this.setLocation(330, 35);
         this.setLayout(null);
         this.setVisible(true);
-        
 
         JPanel panel = new JPanel();
         this.add(panel);
-        
-        productLineName= new JTextField();
+
+        productLineName = new JTextField();
         productLineNumber = new JTextField();
         submit = new JButton("Submit");
 
@@ -55,7 +56,6 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
         panel.setOpaque(true);
         panel.setLayout(null);
 
-
         title.setBounds(0, 0, 750, 200);
         title.setBackground(new Color(0x0396FF));
         title.setOpaque(true);
@@ -63,8 +63,8 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
         title.setHorizontalAlignment(JLabel.CENTER);
         title.setForeground(Color.WHITE);
         title.setFont(new Font("My Name", Font.PLAIN, 65));
-        
-        nametext.setBounds(0, 200, 350,250);
+
+        nametext.setBounds(0, 200, 350, 250);
         nametext.setBackground(new Color(0x0396FF));
         nametext.setOpaque(true);
         nametext.setVerticalAlignment(JLabel.CENTER);
@@ -72,16 +72,16 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
         nametext.setForeground(Color.white);
         nametext.setFont(new Font("My Font", Font.PLAIN, 30));
 
-        productLineName.setBounds(360, 315, 200,30);
+        productLineName.setBounds(360, 315, 200, 30);
 
-        numbertext.setBounds(0, 450, 350,100);
+        numbertext.setBounds(0, 450, 350, 100);
         numbertext.setBackground(new Color(0x0396FF));
         numbertext.setOpaque(true);
         numbertext.setVerticalAlignment(JLabel.TOP);
         numbertext.setHorizontalAlignment(JLabel.LEFT);
         numbertext.setForeground(Color.white);
         numbertext.setFont(new Font("My Font", Font.PLAIN, 30));
-        
+
         productLineNumber.setBounds(360, 455, 200, 30);
 
         submit.setBounds(400, 550, 140, 50);
@@ -94,12 +94,12 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == submit){
-            if(productLineName.getText().isEmpty() || productLineNumber.getText().isEmpty()){
+        if (e.getSource() == submit) {
+            if (productLineName.getText().isEmpty() || productLineNumber.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Please Enter all information", "There are missid information", JOptionPane.WARNING_MESSAGE, null);
                 return;
             }
-            
+
         }
 
     }
@@ -111,16 +111,19 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener,Mouse
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
     @Override
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+    }
 
     @Override
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+    }
 
-    
 }

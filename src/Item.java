@@ -1,12 +1,13 @@
 
-
 public class Item {
+
     private String idItem;
     private String itemName;
-    private String category; 
+    private String category;
     private double price;
     private double quantity;
-    private double minimumQuantity=100;
+    private ItemStatus status;
+    private double minimumQuantity = 100;
 
     public Item(String idItem, String itemName, double minimumQuantity, double price, double quantity) {
         this.idItem = idItem;
@@ -39,6 +40,7 @@ public class Item {
     public void setCategory(String category) {
         this.category = category;
     }
+
     public double getPrice() {
         return price;
     }
@@ -62,18 +64,25 @@ public class Item {
     public void setMinimumQuantity(double minimumQuantity) {
         this.minimumQuantity = minimumQuantity;
     }
+
+    public ItemStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ItemStatus status) {
+        this.status = status;
+    }
+
     //يتم تقليل المخزون والتأكد من وجود مادة خام كافية 
-    public void reduceQuantity(int amount){
-        if (amount <= quantity){
-            quantity -=amount;
+    public void reduceQuantity(int amount) {
+        if (amount <= quantity) {
+            quantity -= amount;
         }
     }
+
     //فحص الحد الادنى المسموح به للمادة الخام
-    public boolean isBelowMinimum(){
+    public boolean isBelowMinimum() {
         return quantity < minimumQuantity;
     }
 
-    
-
-    
 }
