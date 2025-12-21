@@ -5,6 +5,7 @@ public class Product {
 
     private String idProduct;
     private String productName;
+    private ProductLine productLine;
     private HashMap<Item, Integer> item = new HashMap<>();
 
     public Product(String idProduct, String productName) {
@@ -34,6 +35,14 @@ public class Product {
 
     public void setItem(HashMap<Item, Integer> item) {
         this.item = item;
+    }
+
+    public ProductLine getProductLine() {
+        return productLine;
+    }
+
+    public void setProductLine(ProductLine productLine) {
+        this.productLine = productLine;
     }
 
 }

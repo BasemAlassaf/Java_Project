@@ -35,7 +35,7 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener, Mous
         submit = new JButton("Submit");
 
         JLabel nametext = new JLabel("New Product line name: ");
-        JLabel numbertext = new JLabel("New Product line name: ");
+        JLabel numbertext = new JLabel("New Product line number: ");
         JLabel title = new JLabel("Add New Product Line");
         JLabel icon = new JLabel();
 
@@ -99,6 +99,8 @@ public class AddNewProductLineGUI extends JFrame implements ActionListener, Mous
                 JOptionPane.showMessageDialog(null, "Please Enter all information", "There are missid information", JOptionPane.WARNING_MESSAGE, null);
                 return;
             }
+            Factory.addProuductLine(productLineName.getText(), productLineNumber.getText());
+            JOptionPane.showMessageDialog(null, "The Added Procces has compleated succesfuly", "succesful Sign Up", JOptionPane.WARNING_MESSAGE, null);
 
         }
 

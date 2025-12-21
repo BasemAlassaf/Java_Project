@@ -22,7 +22,7 @@ public class ManagerGUI extends JFrame implements ActionListener {
         this.getContentPane().setBackground(new Color(0x0396FF));
 
         add = new JButton("Add New Product Line");
-        edit = new JButton("Edit New Product Line");
+        edit = new JButton("Edit Product Line");
         status = new JButton("Product Lines Status");
 
         this.add(add);

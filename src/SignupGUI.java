@@ -113,15 +113,15 @@ public class SignupGUI extends JFrame implements ActionListener, MouseListener {
             }
             if (manager.isSelected()) {
                 if (!Factory.register(userEmail.getText(), password, Role.Manager)) {
-                    JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null); 
-                }else {
+                    JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null);
+                } else {
                     JOptionPane.showMessageDialog(null, "The Sign Up has compleated succesfuly", "succesful Sign Up", JOptionPane.WARNING_MESSAGE, null);
                     new LoginGUI();
                 }
             } else {
                 if (!Factory.register(userEmail.getText(), password, Role.PRODUCTION_SUPERVISOR)) {
-                    JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null); 
-                }else {
+                    JOptionPane.showMessageDialog(null, "Sorry the email has been taken", "information error", JOptionPane.WARNING_MESSAGE, null);
+                } else {
                     JOptionPane.showMessageDialog(null, "The Sign Up has compleated succesfuly", "succesful Sign Up", JOptionPane.WARNING_MESSAGE, null);
                     new LoginGUI();
                 }

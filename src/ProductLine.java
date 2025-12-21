@@ -7,15 +7,24 @@ public class ProductLine {
     private String lineName;
     private LineStatus status;
     private List<Task> tasks;
+    private List<Product> products;
     private float rate;
     private String note;
 
-    public ProductLine(String lineName, String lineNumber, LineStatus status, List<Task> tasks) {
+    public ProductLine(String lineName, String lineNumber, LineStatus status, List<Task> tasks, List<Product> products, float rate, String note) {
         this.lineName = lineName;
         this.lineNumber = lineNumber;
         this.status = status;
         this.tasks = tasks;
+        this.note = note;
+        this.rate = rate;
+        this.products = products;
+    }
 
+    public ProductLine(String lineName, String lineNumber) {
+        this.lineName = lineName;
+        this.lineNumber = lineNumber;
+        this.status = LineStatus.STOPPED;
     }
 
     // getter and setter
@@ -51,4 +60,27 @@ public class ProductLine {
         this.tasks = tasks;
     }
 
+    public float getRate() {
+        return rate;
+    }
+
+    public void setRate(float rate) {
+        this.rate = rate;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }

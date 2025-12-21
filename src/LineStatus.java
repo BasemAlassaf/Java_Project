@@ -1,6 +1,6 @@
 
 enum LineStatus {
-    Active,
-    Stopped,
-    Maintenance;
+    ACTIVE,
+    STOPPED,
+    MAINTENANCE;
 }

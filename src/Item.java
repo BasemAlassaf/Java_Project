@@ -74,7 +74,7 @@ public class Item {
     }
 
     //يتم تقليل المخزون والتأكد من وجود مادة خام كافية 
-    public void reduceQuantity(int amount) {
+    public synchronized void reduceQuantity(int amount) {
         if (amount <= quantity) {
             quantity -= amount;
         }

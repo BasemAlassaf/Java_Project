@@ -35,8 +35,8 @@ public class Factory {
     }
 
     //Add product line
-    public static void addProuductLine(ProductLine line) {
-        productLines.add(line);
+    public static void addProuductLine(String name, String number) {
+        productLines.add(new ProductLine(name, number));
     }
 
     // Edit product line status
@@ -139,9 +139,9 @@ public class Factory {
 
     //show product lines performed specific tasks
     public static ArrayList<ProductLine> showProductLinesThatPerformedTasks(ArrayList<ProductLine> lines, String tasksName, String productName) {
-        ArrayList<ProductLine> result = new ArrayList<>();
+        ArrayList<ProductLine> productLines = new ArrayList<>();
         if (lines == null || tasksName == null || productName == null) {
-            return result;
+            return productLines;
         }
         for (ProductLine line : productLines) {
             if (line.getTasks() == null) {
@@ -150,11 +150,44 @@ public class Factory {
 
             for (Task tas : line.getTasks()) {
                 if (tas.getTaskName().equalsIgnoreCase(tasksName) && tas.getProductName() != null && tas.getProductName().equalsIgnoreCase(productName)) {
-                    result.add(line);
+                    productLines.add(line);
                     break;
                 }
             }
         }
-        return result;
+        return productLines;
+    }
+
+    //show Product Related Specific ProductLine
+    public static ArrayList<Product> showProductRelatedSpecificProductLine(ArrayList<ProductLine> lines, String lineName) {
+
+        ArrayList<Product> products = new ArrayList<>();
+        if (lines == null || lineName == null) {
+            return products;
+        }
+        for (ProductLine line : productLines) {
+            if (line != null && line.getLineName().equalsIgnoreCase(lineName)) {
+                products.addAll(line.getProducts());
+                break;
+            }
+
+        }
+        return products;
+    }
+
+    //show Product Related All ProductLine
+    public static ArrayList<Product> showProductRelatedAllProductLine(ArrayList<ProductLine> lines) {
+
+        ArrayList<Product> products = new ArrayList<>();
+        if (lines == null) {
+            return products;
+        }
+        for (ProductLine line : productLines) {
+            if (line != null && line.getProducts() != null) {
+                products.addAll(line.getProducts());
+            }
+
+        }
+        return products;
     }
 }
