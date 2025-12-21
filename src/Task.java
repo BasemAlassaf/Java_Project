@@ -13,8 +13,9 @@ public class Task {
     private TaskStatus status;
     private ProductLine assignedLine;
     private int quantityCompleted = 0;
+    private Item material;
 
-    public Task(ProductLine assignedLine, LocalDate beginDate, int quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber) {
+    public Task(ProductLine assignedLine, LocalDate beginDate, int quantityCompleted, String customer, LocalDate endDate, String productName, int quantityRequest, TaskStatus status, String taskNumber, Item material) {
         this.assignedLine = assignedLine;
         this.beginDate = beginDate;
         this.quantityCompleted = quantityCompleted;
@@ -24,6 +25,16 @@ public class Task {
         this.quantityRequest = quantityRequest;
         this.status = status;
         this.taskNumber = taskNumber;
+        this.material = material;
+    }
+
+    public void execute() {
+        status = TaskStatus.IN_PROGRESS;
+        if (material.reduceQuantity(quantityRequest)) {
+            status = TaskStatus.COMPLETED;
+        } else {
+            status = TaskStatus.CANCELLED;
+        }
     }
 
     public String getTaskNumber() {

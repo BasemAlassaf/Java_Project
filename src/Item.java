@@ -17,6 +17,13 @@ public class Item {
         this.quantity = quantity;
     }
 
+    Item(String idItem, String itemName, double quantity, double minimumQuantity) {
+        this.idItem = idItem;
+        this.itemName = itemName;
+        this.quantity = quantity;
+        this.minimumQuantity = minimumQuantity;
+    }
+
     public String getIdItem() {
         return idItem;
     }
@@ -74,10 +81,12 @@ public class Item {
     }
 
     //يتم تقليل المخزون والتأكد من وجود مادة خام كافية 
-    public synchronized void reduceQuantity(int amount) {
-        if (amount <= quantity) {
-            quantity -= amount;
+    public synchronized boolean reduceQuantity(int quantityRequest) {
+        if (quantityRequest <= quantity) {
+            quantity -= quantityRequest;
+            return true;
         }
+        return false;
     }
 
     //فحص الحد الادنى المسموح به للمادة الخام

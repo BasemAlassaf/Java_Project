@@ -1,12 +1,13 @@
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ProductLine {
+public class ProductLine implements Runnable {
 
     private String lineNumber;
     private String lineName;
     private LineStatus status;
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();
     private List<Product> products;
     private float rate;
     private String note;
@@ -82,5 +83,13 @@ public class ProductLine {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public synchronized void run() {
+        while (!tasks.isEmpty()) {
+            Task task = tasks.get(0);
+            tasks.remove(0);
+            task.execute();
+        }
     }
 }

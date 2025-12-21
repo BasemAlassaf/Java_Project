@@ -177,7 +177,6 @@ public class Factory {
 
     //show Product Related All ProductLine
     public static ArrayList<Product> showProductRelatedAllProductLine(ArrayList<ProductLine> lines) {
-
         ArrayList<Product> products = new ArrayList<>();
         if (lines == null) {
             return products;
@@ -185,9 +184,67 @@ public class Factory {
         for (ProductLine line : productLines) {
             if (line != null && line.getProducts() != null) {
                 products.addAll(line.getProducts());
+
             }
 
         }
         return products;
     }
+    //Filter By Name
+
+    public static ArrayList<Item> filterByName(String name) {
+        ArrayList<Item> result = new ArrayList<>();
+        for (Item i : items) {
+            if (name != null && i.getItemname().contains(name)) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+//Filter By Category
+
+    public static ArrayList<Item> filterByCategory(String category) {
+        ArrayList<Item> result = new ArrayList<>();
+        for (Item i : items) {
+            if (category != null && i.getCategory().contains(category)) {
+                result.add(i);
+            }
+        }
+        return result;
+
+    }
+    //Filter By Status Availble
+
+    public static ArrayList<Item> filterByStatusAvailable(ItemStatus status) {
+        ArrayList<Item> available = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getStatus() == ItemStatus.AVAILABLE) {
+                available.add(i);
+            }
+        }
+        return available;
+    }
+//Filter By Status Run Out
+
+    public static ArrayList<Item> filterByStatusRunOut(ItemStatus status) {
+        ArrayList<Item> runout = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getStatus() == ItemStatus.RUN_OUT) {
+                runout.add(i);
+            }
+        }
+        return runout;
+    }
+//Filter By Status Belo Minimum
+
+    public static ArrayList<Item> filterByStatus(ItemStatus status) {
+        ArrayList<Item> belpminimum = new ArrayList<>();
+        for (Item i : items) {
+            if (i.getStatus() == ItemStatus.BELO_MINIMUM) {
+                belpminimum.add(i);
+            }
+        }
+        return belpminimum;
+    }
+
 }

@@ -1,6 +1,6 @@
 
 public enum ItemStatus {
-    AVALABLE,
+    AVAILABLE,
     RUN_OUT,
     BELO_MINIMUM;
 }
